@@ -3,4 +3,5 @@ export interface IViagem{
     acompanhante: string
     imagem: string
     pais?: string
+    data: string
 }

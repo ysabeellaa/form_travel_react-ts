@@ -21,7 +21,9 @@ const TimePais = (props:TimePaisProps) =>{
                     nome={viagem.atracao} 
                     acompanhante={viagem.acompanhante} 
                     imagem={viagem.imagem}
-                    corDeFundo={props.corPrimaria}/>)}
+                    corDeFundo={props.corPrimaria}
+                    data={viagem.data} />)}
+                 
             </div>
         </section>  
         : <></> // react fragment

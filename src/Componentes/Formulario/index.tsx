@@ -18,6 +18,7 @@ const Formulario = (props:FormularioProps) =>{
     const [acompanhante,setAcompanhante] = useState('')
     const [imagem,setImagem] = useState('')
     const [pais,setPais] = useState('')
+    const [data, setData] = useState('')
 
     const aoSalvar =(evento: React.FormEvent<HTMLFormElement>) =>{
         evento.preventDefault()
@@ -25,7 +26,8 @@ const Formulario = (props:FormularioProps) =>{
             atracao,
             acompanhante,
             imagem,
-            pais
+            pais,
+            data
         })
         setAtracao('')
         setAcompanhante('')
@@ -57,6 +59,13 @@ const Formulario = (props:FormularioProps) =>{
                     placeholder="Coloque o endereço da imagem"
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}
+                />
+                <CampoTexto 
+                    label="Data da viagem" 
+                    placeholder=""
+                    valor={data}
+                    aoAlterado={valor => setData(valor)}
+                    tipo="date"
                 />
                 <ListaSuspensa
                     obrigatorio={true} 

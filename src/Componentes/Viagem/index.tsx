@@ -1,7 +1,14 @@
 import './Viagem.css'
 
 
-const Viagem = ({ nome, imagem, acompanhante, corDeFundo }) => {
+interface ViagemProps{
+    nome: string
+    imagem: string
+    acompanhante: string
+    corDeFundo: string
+}
+
+const Viagem = ({ nome, imagem, acompanhante, corDeFundo }:ViagemProps) => {
     return (<div className='viagem'>
         <div className='cabecalho' style={{ backgroundColor: corDeFundo }}>
             <img src={imagem} alt={nome}/>

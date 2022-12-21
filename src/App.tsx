@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { IViagem } from './compartilhado/interfaces/IViagem';
 import Banner from './Componentes/Banner';
 import Formulario from './Componentes/Formulario';
 import TimePais from './Componentes/TimePais';
@@ -43,20 +44,19 @@ function App() {
     }
   ]
   
-  const [viagens, setViagens] =useState([])
+  const [viagens, setViagens] =useState<IViagem[]>([]) /* usando generics entre <> (tipo do tipo) */
 
-  const aoNovaViagemCadastrada = (viagem) =>{
+  const aoNovaViagemCadastrada = (viagem: IViagem) =>{
     setViagens ([...viagens, viagem])
-    console.log(viagem)
   }
 
   return (
     <div className="App">
-      <Banner/>
+      <Banner enderecoImagem="/imagens/travel2.jpg" />
       <Formulario nomeDosPaises={paises.map(pais => pais.nome)} aoViagemCadastrada ={viagem => aoNovaViagemCadastrada(viagem)}/>
       {paises.map(pais => <TimePais
       key={pais.nome}
-      nome={pais.nome}
+      nome={pais.nome} 
       corPrimaria={pais.corPrimaria} 
       corSecundaria={pais.corSecundaria}
       viagens={viagens.filter(viagem => viagem.pais === pais.nome)}

@@ -3,19 +3,24 @@ import Botao from '../Botao'
 import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
+import { IViagem } from '../../compartilhado/interfaces/IViagem'
+
+interface FormularioProps{
+    aoViagemCadastrada: (viagem: IViagem) => void
+    nomeDosPaises: string[]
+    
+}
 
 
-
-const Formulario = (props) =>{
+const Formulario = (props:FormularioProps) =>{
    
     const [atracao,setAtracao] = useState('')
     const [acompanhante,setAcompanhante] = useState('')
     const [imagem,setImagem] = useState('')
     const [pais,setPais] = useState('')
 
-    const aoSalvar =(evento) =>{
+    const aoSalvar =(evento: React.FormEvent<HTMLFormElement>) =>{
         evento.preventDefault()
-        console.log(atracao, acompanhante, imagem, pais)
         props.aoViagemCadastrada({
             atracao,
             acompanhante,
